@@ -96,7 +96,7 @@ class ExecutionPlan:
         return True
 
     def __str__(self) -> str:
-        def aggraget_str(str_children):
+        def aggregate_str(str_children):
             return "\n".join(
                 [
                     "    " + line
@@ -109,7 +109,7 @@ class ExecutionPlan:
             return f"{x}\n{y}"
 
         return self._operation_traverse(
-            self.structured_plan, str, aggraget_str, combine_str
+            self.structured_plan, str, aggregate_str, combine_str
         )
 
     def __eq__(self, o: object) -> bool:
