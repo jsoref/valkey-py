@@ -1465,7 +1465,7 @@ class BitFieldOperation:
         """
         Update the overflow algorithm of successive INCRBY operations
         :param overflow: Overflow algorithm, one of WRAP, SAT, FAIL. See the
-            Valkey docs for descriptions of these algorithmsself.
+            Valkey docs for descriptions of these algorithms.
         :returns: a :py:class:`BitFieldOperation` instance.
         """
         overflow = overflow.upper()
