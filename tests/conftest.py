@@ -511,7 +511,7 @@ def assert_resp_response(r, response, resp2_expected, resp3_expected):
 def assert_geo_is_close(coords, expected_coords):
     """Verifies that the coordinates are close within the floating point tolerance.
 
-    Valkey uses 52-bit presicion
+    Valkey uses 52-bit precision
     """
     for a, b in zip(coords, expected_coords):
         assert math.isclose(a, b)
