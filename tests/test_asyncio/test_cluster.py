@@ -775,7 +775,7 @@ class TestValkeyClusterObj:
 
     async def test_all_nodes_masters(self, r: ValkeyCluster) -> None:
         """
-        Set a list of nodes with random primaries/replicas config and it shold
+        Set a list of nodes with random primaries/replicas config and it should
         be possible to iterate over all of them.
         """
         nodes = [
