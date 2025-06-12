@@ -383,7 +383,7 @@ class TimeSeriesCommands:
         empty: Optional[bool] = False,
     ):
         """
-        Query a range in forward direction for a specific time-serie.
+        Query a range in forward direction for a specific time-series.
 
         Args:
 
