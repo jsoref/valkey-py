@@ -402,7 +402,7 @@ class Valkey(
         func - The function, being added to this class.
 
         ex: Assume that one has a custom valkey module named foomod that
-        creates command named 'foo.dothing' and 'foo.anotherthing' in valkey.
+        creates command named 'foo.dothing' and 'foo.another_thing' in valkey.
         To load function functions into this namespace:
 
         from valkey import Valkey
