@@ -2522,7 +2522,7 @@ class BasicKeyCommands(CommandsProtocol):
     ) -> Union[str, int, list]:
         """
         Find the longest common subsequence between ``key1`` and ``key2``.
-        If ``len`` is true the length of the match will will be returned.
+        If ``len`` is true the length of the match will be returned.
         If ``idx`` is true the match position in each strings will be returned.
         ``minmatchlen`` restrict the list of matches to the ones of
         the given ``minmatchlen``.
