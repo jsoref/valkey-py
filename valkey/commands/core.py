@@ -2918,7 +2918,7 @@ class ListCommands(CommandsProtocol):
             pieces.extend([b"LIMIT", start, num])
         if get is not None:
             # If get is a string assume we want to get a single value.
-            # Otherwise assume it's an interable and we want to get multiple
+            # Otherwise assume it's an iterable and we want to get multiple
             # values. We can't just iterate blindly because strings are
             # iterable.
             if isinstance(get, (bytes, str)):

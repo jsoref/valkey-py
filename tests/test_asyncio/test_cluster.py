@@ -2469,7 +2469,7 @@ class TestNodesManager:
 
     async def test_wrong_startup_nodes_type(self) -> None:
         """
-        If something other then a list type itteratable is provided it should
+        If something other then a list type iterable is provided it should
         fail
         """
         with pytest.raises(ValkeyClusterException):
