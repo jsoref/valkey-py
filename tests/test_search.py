@@ -1628,7 +1628,7 @@ def test_fields_as_name(client):
 
 
 @pytest.mark.valkeymod
-def test_casesensitive(client):
+def test_case_sensitive(client):
     # create index
     SCHEMA = (TagField("t", case_sensitive=False),)
     client.ft().create_index(SCHEMA)
