@@ -57,7 +57,7 @@ class TimeSeriesCommands:
             - 'block': an error will occur for any out of order sample.
             - 'first': ignore the new value.
             - 'last': override with latest value.
-            - 'min': only override if the value is lower than the existing value.
+            - 'min': only override if the value is less than the existing value.
             - 'max': only override if the value is greater than the existing value.
             - 'sum': If a previous sample exists, add the new sample to it so that \
             the updated value is equal to (previous + new). If no previous sample \
@@ -104,7 +104,7 @@ class TimeSeriesCommands:
             - 'block': an error will occur for any out of order sample.
             - 'first': ignore the new value.
             - 'last': override with latest value.
-            - 'min': only override if the value is lower than the existing value.
+            - 'min': only override if the value is less than the existing value.
             - 'max': only override if the value is greater than the existing value.
             - 'sum': If a previous sample exists, add the new sample to it so that \
             the updated value is equal to (previous + new). If no previous sample \
@@ -158,7 +158,7 @@ class TimeSeriesCommands:
             - 'block': an error will occur for any out of order sample.
             - 'first': ignore the new value.
             - 'last': override with latest value.
-            - 'min': only override if the value is lower than the existing value.
+            - 'min': only override if the value is less than the existing value.
             - 'max': only override if the value is greater than the existing value.
             - 'sum': If a previous sample exists, add the new sample to it so that \
             the updated value is equal to (previous + new). If no previous sample \
