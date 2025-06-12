@@ -169,7 +169,7 @@ def pytest_sessionstart(session):
             uvloop.install()
         except ImportError as e:
             raise RuntimeError(
-                "Can not import uvloop, make sure it is installed"
+                "Cannot import uvloop, make sure it is installed"
             ) from e
 
 

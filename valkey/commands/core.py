@@ -4451,7 +4451,7 @@ class SortedSetCommands(CommandsProtocol):
         num: Union[int, None] = None,
     ) -> ResponseT:
         if byscore and bylex:
-            raise DataError("``byscore`` and ``bylex`` can not be specified together.")
+            raise DataError("``byscore`` and ``bylex`` cannot be specified together.")
         if (offset is not None and num is None) or (num is not None and offset is None):
             raise DataError("``offset`` and ``num`` must both be specified.")
         if bylex and withscores:

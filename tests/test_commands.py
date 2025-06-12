@@ -4102,7 +4102,7 @@ class TestValkeyCommands:
         with pytest.raises(valkey.ResponseError):
             assert r.xadd(stream, {"foo": "bar"}, maxlen=3, approximate=False, limit=2)
 
-        # limit can not be provided without maxlen or minid
+        # limit cannot be provided without maxlen or minid
         with pytest.raises(valkey.ResponseError):
             assert r.xadd(stream, {"foo": "bar"}, limit=2)
 
@@ -4110,7 +4110,7 @@ class TestValkeyCommands:
         assert r.xadd(stream, {"foo": "bar"}, maxlen=3, approximate=True, limit=2)
         r.delete(stream)
 
-        # maxlen and minid can not be provided together
+        # maxlen and minid cannot be provided together
         with pytest.raises(valkey.DataError):
             assert r.xadd(stream, {"foo": "bar"}, maxlen=3, minid="sometestvalue")
 
