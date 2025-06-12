@@ -4313,7 +4313,7 @@ class TestValkeyCommands:
         assert r.xinfo_groups(stream) == expected
 
     @skip_if_server_version_lt("7.0.0")
-    def test_xgroup_create_entriesread(self, r: valkey.Valkey):
+    def test_xgroup_create_entries_read(self, r: valkey.Valkey):
         stream = "stream"
         group = "group"
         r.xadd(stream, {"foo": "bar"})
