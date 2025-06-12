@@ -2869,7 +2869,7 @@ class TestClusterPubSubObject:
         p = r.pubsub(node=node)
         assert p.get_pubsub_node() == node
 
-    def test_init_pubusub_without_specifying_node(self, r):
+    def test_init_pubsub_without_specifying_node(self, r):
         """
         Test creation of pubsub instance without specifying a node. The node
         should be determined based on the keyslot of the first command
