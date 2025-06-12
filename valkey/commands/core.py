@@ -2236,7 +2236,7 @@ class BasicKeyCommands(CommandsProtocol):
             try:
                 params.append(int(idletime))
             except ValueError:
-                raise DataError("idletimemust be an integer")
+                raise DataError("idletime must be an integer")
 
         if frequency is not None:
             params.append("FREQ")
