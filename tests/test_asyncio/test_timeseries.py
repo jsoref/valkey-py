@@ -24,8 +24,8 @@ async def test_create(decoded_r: valkey.Valkey):
     assert "Series" == info["labels"]["Time"]
 
     # Test for a chunk size of 128 Bytes
-    assert await decoded_r.ts().create("time-serie-1", chunk_size=128)
-    info = await decoded_r.ts().info("time-serie-1")
+    assert await decoded_r.ts().create("time-series-1", chunk_size=128)
+    info = await decoded_r.ts().info("time-series-1")
     assert_resp_response(decoded_r, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
@@ -33,7 +33,7 @@ async def test_create(decoded_r: valkey.Valkey):
 async def test_create_duplicate_policy(decoded_r: valkey.Valkey):
     # Test for duplicate policy
     for duplicate_policy in ["block", "last", "first", "min", "max"]:
-        ts_name = f"time-serie-ooo-{duplicate_policy}"
+        ts_name = f"time-series-ooo-{duplicate_policy}"
         assert await decoded_r.ts().create(ts_name, duplicate_policy=duplicate_policy)
         info = await decoded_r.ts().info(ts_name)
         assert_resp_response(
@@ -97,48 +97,48 @@ async def test_add(decoded_r: valkey.Valkey):
     assert "Labs" == info["labels"]["Valkey"]
 
     # Test for a chunk size of 128 Bytes on TS.ADD
-    assert await decoded_r.ts().add("time-serie-1", 1, 10.0, chunk_size=128)
-    info = await decoded_r.ts().info("time-serie-1")
+    assert await decoded_r.ts().add("time-series-1", 1, 10.0, chunk_size=128)
+    info = await decoded_r.ts().info("time-series-1")
     assert_resp_response(decoded_r, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
 @skip_ifmodversion_lt("1.4.0", "timeseries")
 async def test_add_duplicate_policy(r: valkey.Valkey):
     # Test for duplicate policy BLOCK
-    assert 1 == await r.ts().add("time-serie-add-ooo-block", 1, 5.0)
+    assert 1 == await r.ts().add("time-series-add-ooo-block", 1, 5.0)
     with pytest.raises(Exception):
-        await r.ts().add("time-serie-add-ooo-block", 1, 5.0, duplicate_policy="block")
+        await r.ts().add("time-series-add-ooo-block", 1, 5.0, duplicate_policy="block")
 
     # Test for duplicate policy LAST
-    assert 1 == await r.ts().add("time-serie-add-ooo-last", 1, 5.0)
+    assert 1 == await r.ts().add("time-series-add-ooo-last", 1, 5.0)
     assert 1 == await r.ts().add(
-        "time-serie-add-ooo-last", 1, 10.0, duplicate_policy="last"
+        "time-series-add-ooo-last", 1, 10.0, duplicate_policy="last"
     )
-    res = await r.ts().get("time-serie-add-ooo-last")
+    res = await r.ts().get("time-series-add-ooo-last")
     assert 10.0 == res[1]
 
     # Test for duplicate policy FIRST
-    assert 1 == await r.ts().add("time-serie-add-ooo-first", 1, 5.0)
+    assert 1 == await r.ts().add("time-series-add-ooo-first", 1, 5.0)
     assert 1 == await r.ts().add(
-        "time-serie-add-ooo-first", 1, 10.0, duplicate_policy="first"
+        "time-series-add-ooo-first", 1, 10.0, duplicate_policy="first"
     )
-    res = await r.ts().get("time-serie-add-ooo-first")
+    res = await r.ts().get("time-series-add-ooo-first")
     assert 5.0 == res[1]
 
     # Test for duplicate policy MAX
-    assert 1 == await r.ts().add("time-serie-add-ooo-max", 1, 5.0)
+    assert 1 == await r.ts().add("time-series-add-ooo-max", 1, 5.0)
     assert 1 == await r.ts().add(
-        "time-serie-add-ooo-max", 1, 10.0, duplicate_policy="max"
+        "time-series-add-ooo-max", 1, 10.0, duplicate_policy="max"
     )
-    res = await r.ts().get("time-serie-add-ooo-max")
+    res = await r.ts().get("time-series-add-ooo-max")
     assert 10.0 == res[1]
 
     # Test for duplicate policy MIN
-    assert 1 == await r.ts().add("time-serie-add-ooo-min", 1, 5.0)
+    assert 1 == await r.ts().add("time-series-add-ooo-min", 1, 5.0)
     assert 1 == await r.ts().add(
-        "time-serie-add-ooo-min", 1, 10.0, duplicate_policy="min"
+        "time-series-add-ooo-min", 1, 10.0, duplicate_policy="min"
     )
-    res = await r.ts().get("time-serie-add-ooo-min")
+    res = await r.ts().get("time-series-add-ooo-min")
     assert 5.0 == res[1]
 
 
@@ -167,13 +167,13 @@ async def test_incrby_decrby(decoded_r: valkey.Valkey):
     assert_resp_response(decoded_r, await decoded_r.ts().get(2), (15, 2.25), [15, 2.25])
 
     # Test for a chunk size of 128 Bytes on TS.INCRBY
-    assert await decoded_r.ts().incrby("time-serie-1", 10, chunk_size=128)
-    info = await decoded_r.ts().info("time-serie-1")
+    assert await decoded_r.ts().incrby("time-series-1", 10, chunk_size=128)
+    info = await decoded_r.ts().info("time-series-1")
     assert_resp_response(decoded_r, 128, info.get("chunk_size"), info.get("chunkSize"))
 
     # Test for a chunk size of 128 Bytes on TS.DECRBY
-    assert await decoded_r.ts().decrby("time-serie-2", 10, chunk_size=128)
-    info = await decoded_r.ts().info("time-serie-2")
+    assert await decoded_r.ts().decrby("time-series-2", 10, chunk_size=128)
+    info = await decoded_r.ts().info("time-series-2")
     assert_resp_response(decoded_r, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
@@ -703,8 +703,8 @@ async def testInfoDuplicatePolicy(decoded_r: valkey.Valkey):
         decoded_r, None, info.get("duplicate_policy"), info.get("duplicatePolicy")
     )
 
-    await decoded_r.ts().create("time-serie-2", duplicate_policy="min")
-    info = await decoded_r.ts().info("time-serie-2")
+    await decoded_r.ts().create("time-series-2", duplicate_policy="min")
+    info = await decoded_r.ts().info("time-series-2")
     assert_resp_response(
         decoded_r, "min", info.get("duplicate_policy"), info.get("duplicatePolicy")
     )

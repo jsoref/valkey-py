@@ -28,8 +28,8 @@ def test_create(client):
     assert "Series" == info["labels"]["Time"]
 
     # Test for a chunk size of 128 Bytes
-    assert client.ts().create("time-serie-1", chunk_size=128)
-    info = client.ts().info("time-serie-1")
+    assert client.ts().create("time-series-1", chunk_size=128)
+    info = client.ts().info("time-series-1")
     assert_resp_response(client, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
@@ -37,7 +37,7 @@ def test_create(client):
 def test_create_duplicate_policy(client):
     # Test for duplicate policy
     for duplicate_policy in ["block", "last", "first", "min", "max"]:
-        ts_name = f"time-serie-ooo-{duplicate_policy}"
+        ts_name = f"time-series-ooo-{duplicate_policy}"
         assert client.ts().create(ts_name, duplicate_policy=duplicate_policy)
         info = client.ts().info(ts_name)
         assert_resp_response(
@@ -99,45 +99,45 @@ def test_add(client):
     assert "Labs" == info["labels"]["Valkey"]
 
     # Test for a chunk size of 128 Bytes on TS.ADD
-    assert client.ts().add("time-serie-1", 1, 10.0, chunk_size=128)
-    info = client.ts().info("time-serie-1")
+    assert client.ts().add("time-series-1", 1, 10.0, chunk_size=128)
+    info = client.ts().info("time-series-1")
     assert_resp_response(client, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
 @skip_ifmodversion_lt("1.4.0", "timeseries")
 def test_add_duplicate_policy(client):
     # Test for duplicate policy BLOCK
-    assert 1 == client.ts().add("time-serie-add-ooo-block", 1, 5.0)
+    assert 1 == client.ts().add("time-series-add-ooo-block", 1, 5.0)
     with pytest.raises(Exception):
-        client.ts().add("time-serie-add-ooo-block", 1, 5.0, duplicate_policy="block")
+        client.ts().add("time-series-add-ooo-block", 1, 5.0, duplicate_policy="block")
 
     # Test for duplicate policy LAST
-    assert 1 == client.ts().add("time-serie-add-ooo-last", 1, 5.0)
+    assert 1 == client.ts().add("time-series-add-ooo-last", 1, 5.0)
     assert 1 == client.ts().add(
-        "time-serie-add-ooo-last", 1, 10.0, duplicate_policy="last"
+        "time-series-add-ooo-last", 1, 10.0, duplicate_policy="last"
     )
-    assert 10.0 == client.ts().get("time-serie-add-ooo-last")[1]
+    assert 10.0 == client.ts().get("time-series-add-ooo-last")[1]
 
     # Test for duplicate policy FIRST
-    assert 1 == client.ts().add("time-serie-add-ooo-first", 1, 5.0)
+    assert 1 == client.ts().add("time-series-add-ooo-first", 1, 5.0)
     assert 1 == client.ts().add(
-        "time-serie-add-ooo-first", 1, 10.0, duplicate_policy="first"
+        "time-series-add-ooo-first", 1, 10.0, duplicate_policy="first"
     )
-    assert 5.0 == client.ts().get("time-serie-add-ooo-first")[1]
+    assert 5.0 == client.ts().get("time-series-add-ooo-first")[1]
 
     # Test for duplicate policy MAX
-    assert 1 == client.ts().add("time-serie-add-ooo-max", 1, 5.0)
+    assert 1 == client.ts().add("time-series-add-ooo-max", 1, 5.0)
     assert 1 == client.ts().add(
-        "time-serie-add-ooo-max", 1, 10.0, duplicate_policy="max"
+        "time-series-add-ooo-max", 1, 10.0, duplicate_policy="max"
     )
-    assert 10.0 == client.ts().get("time-serie-add-ooo-max")[1]
+    assert 10.0 == client.ts().get("time-series-add-ooo-max")[1]
 
     # Test for duplicate policy MIN
-    assert 1 == client.ts().add("time-serie-add-ooo-min", 1, 5.0)
+    assert 1 == client.ts().add("time-series-add-ooo-min", 1, 5.0)
     assert 1 == client.ts().add(
-        "time-serie-add-ooo-min", 1, 10.0, duplicate_policy="min"
+        "time-series-add-ooo-min", 1, 10.0, duplicate_policy="min"
     )
-    assert 5.0 == client.ts().get("time-serie-add-ooo-min")[1]
+    assert 5.0 == client.ts().get("time-series-add-ooo-min")[1]
 
 
 def test_madd(client):
@@ -163,13 +163,13 @@ def test_incrby_decrby(client):
     assert_resp_response(client, client.ts().get(2), (15, 2.25), [15, 2.25])
 
     # Test for a chunk size of 128 Bytes on TS.INCRBY
-    assert client.ts().incrby("time-serie-1", 10, chunk_size=128)
-    info = client.ts().info("time-serie-1")
+    assert client.ts().incrby("time-series-1", 10, chunk_size=128)
+    info = client.ts().info("time-series-1")
     assert_resp_response(client, 128, info.get("chunk_size"), info.get("chunkSize"))
 
     # Test for a chunk size of 128 Bytes on TS.DECRBY
-    assert client.ts().decrby("time-serie-2", 10, chunk_size=128)
-    info = client.ts().info("time-serie-2")
+    assert client.ts().decrby("time-series-2", 10, chunk_size=128)
+    info = client.ts().info("time-series-2")
     assert_resp_response(client, 128, info.get("chunk_size"), info.get("chunkSize"))
 
 
@@ -930,8 +930,8 @@ def testInfoDuplicatePolicy(client):
         client, None, info.get("duplicate_policy"), info.get("duplicatePolicy")
     )
 
-    client.ts().create("time-serie-2", duplicate_policy="min")
-    info = client.ts().info("time-serie-2")
+    client.ts().create("time-series-2", duplicate_policy="min")
+    info = client.ts().info("time-series-2")
     assert_resp_response(
         client, "min", info.get("duplicate_policy"), info.get("duplicatePolicy")
     )
