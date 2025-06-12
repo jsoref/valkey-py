@@ -192,7 +192,7 @@ class OCSPVerifier:
         server in the chain for a socket already wrapped with ssl.
         """
 
-        # convert the binary certifcate to text
+        # convert the binary certificate to text
         der = self.SOCK.getpeercert(True)
         if der is False:
             raise ConnectionError("no certificate found for ssl peer")
