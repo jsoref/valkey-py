@@ -2647,7 +2647,7 @@ class TestValkeyCommands:
 
     @skip_if_server_version_lt("6.2.0")
     async def test_geosearch_negative(self, r: valkey.Valkey):
-        # not specifying member nor longitude and latitude
+        # neither specifying member nor longitude and latitude
         with pytest.raises(exceptions.DataError):
             assert await r.geosearch("barcelona")
         # specifying member and longitude and latitude
@@ -2661,7 +2661,7 @@ class TestValkeyCommands:
         with pytest.raises(exceptions.DataError):
             assert await r.geosearch("barcelona", latitude=2)
 
-        # not specifying radius nor width and height
+        # neither specifying radius nor width and height
         with pytest.raises(exceptions.DataError):
             assert await r.geosearch("barcelona", member="Paris")
         # specifying radius and width and height
