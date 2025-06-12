@@ -201,7 +201,7 @@ class TimeSeriesCommands:
         chunk_size: Optional[int] = None,
     ):
         """
-        Increment (or create an time-series and increment) the latest sample's of a series.
+        Increment (or create a time-series and increment) the latest sample's of a series.
         This command can be used as a counter or gauge that automatically gets history as a time series.
 
         Args:
@@ -244,7 +244,7 @@ class TimeSeriesCommands:
         chunk_size: Optional[int] = None,
     ):
         """
-        Decrement (or create an time-series and decrement) the latest sample's of a series.
+        Decrement (or create a time-series and decrement) the latest sample's of a series.
         This command can be used as a counter or gauge that automatically gets history as a time series.
 
         Args:
