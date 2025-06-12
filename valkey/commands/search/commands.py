@@ -374,7 +374,7 @@ class SearchCommands:
         )
 
     @deprecated_function(
-        version="2.0.0", reason="deprecated since valkeyearch 2.0, call hset instead"
+        version="2.0.0", reason="deprecated since valkey-search 2.0, call hset instead"
     )
     def add_document_hash(self, doc_id, score=1.0, language=None, replace=False):
         """
