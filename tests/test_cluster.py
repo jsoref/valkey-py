@@ -1425,7 +1425,7 @@ class TestClusterValkeyCommands:
             for i in range(0, len(res) - 1, 2):
                 assert res[i][b"node"] == res[i + 1][b"node"]
 
-    def test_cluster_flshslots_not_implemented(self, r):
+    def test_cluster_flushslots_not_implemented(self, r):
         with pytest.raises(NotImplementedError):
             r.cluster_flushslots()
 
