@@ -1079,11 +1079,11 @@ class TestClusterValkeyCommands:
             pubsub_nodes.append(p)
             p.subscribe(channel)
             # Assert that each node returns that only one client is subscribed
-            sub_chann_num = node.valkey_connection.pubsub_numsub(channel)
-            if sub_chann_num == [(b_channel, 0)]:
+            sub_chan_num = node.valkey_connection.pubsub_numsub(channel)
+            if sub_chan_num == [(b_channel, 0)]:
                 sleep(0.3)
-                sub_chann_num = node.valkey_connection.pubsub_numsub(channel)
-            assert sub_chann_num == [(b_channel, 1)]
+                sub_chan_num = node.valkey_connection.pubsub_numsub(channel)
+            assert sub_chan_num == [(b_channel, 1)]
         # Assert that the cluster's pubsub_numsub function returns ALL clients
         # subscribed to this channel in the entire cluster
         assert r.pubsub_numsub(channel, target_nodes="all") == [(b_channel, len(nodes))]
