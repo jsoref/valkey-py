@@ -635,7 +635,7 @@ async def test_explain(decoded_r: valkey.Valkey):
 
 
 @pytest.mark.valkeymod
-async def test_explaincli(decoded_r: valkey.Valkey):
+async def test_explain_cli(decoded_r: valkey.Valkey):
     with pytest.raises(NotImplementedError):
         await decoded_r.ft().explain_cli("foo")
 

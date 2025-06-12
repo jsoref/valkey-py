@@ -605,7 +605,7 @@ def test_explain(client):
 
 
 @pytest.mark.valkeymod
-def test_explaincli(client):
+def test_explain_cli(client):
     with pytest.raises(NotImplementedError):
         client.ft().explain_cli("foo")
 
