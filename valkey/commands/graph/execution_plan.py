@@ -201,7 +201,7 @@ class ExecutionPlan:
                 i += 1
             elif op_level < level:
                 # if the operation is not child of current operation
-                # go back to its parent operation
+                # go back to its parent's operation
                 levels_back = level - op_level + 1
                 for _ in range(levels_back):
                     current = stack.pop()
