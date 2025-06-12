@@ -296,7 +296,7 @@ class Query:
         Add a sortby field to the query.
 
         - **field** - the name of the field to sort by
-        - **asc** - when `True`, sorting will be done in asceding order
+        - **asc** - when `True`, sorting will be done in ascending order
         """
         self._sortby = SortbyField(field, asc)
         return self
