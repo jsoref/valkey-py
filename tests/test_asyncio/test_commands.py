@@ -3549,7 +3549,7 @@ class TestValkeyCommands:
             with pytest.raises(asyncio.CancelledError):
                 # blocking pop
                 ready.set()
-                await r.brpop(["nonexist"])
+                await r.brpop(["nonexistent"])
             # If the following is not done, further Timout operations will fail,
             # because the timeout won't catch its Cancelled Error if the task
             # has a pending cancel.  Python documentation probably should reflect this.

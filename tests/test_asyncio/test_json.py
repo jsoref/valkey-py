@@ -825,7 +825,7 @@ async def test_objkeys_dollar(decoded_r: valkey.Valkey):
     # Test missing key
     assert await decoded_r.json().objkeys("non_existing_doc", "..a") is None
 
-    # Test non existing doc
+    # Test nonexistent doc
     with pytest.raises(exceptions.ResponseError):
         assert await decoded_r.json().objkeys("non_existing_doc", "$..a") == []
 

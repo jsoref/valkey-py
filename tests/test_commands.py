@@ -5118,7 +5118,7 @@ class TestValkeyCommands:
                 with patch.object(
                     r.connection._parser, "read_response", side_effect=CancelledError
                 ):
-                    r.brpop(["nonexist"])
+                    r.brpop(["nonexistent"])
             # if all is well, we can continue.
             r.set("status", "down")  # should not hang
             nonlocal ok

@@ -828,7 +828,7 @@ def test_objkeys_dollar(client):
     # Test missing key
     assert client.json().objkeys("non_existing_doc", "..a") is None
 
-    # Test non existing doc
+    # Test nonexistent doc
     with pytest.raises(exceptions.ResponseError):
         assert client.json().objkeys("non_existing_doc", "$..a") == []
 
