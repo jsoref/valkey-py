@@ -96,7 +96,7 @@ def test_jsonsetexistentialmodifiersshouldsucceed(client):
     assert client.json().set("obj", Path("foo"), "baz", xx=True)
     assert client.json().set("obj", Path("qaz"), "baz", nx=True)
 
-    # Test that flags are mutually exlusive
+    # Test that flags are mutually exclusive
     with pytest.raises(Exception):
         client.json().set("obj", Path("foo"), "baz", nx=True, xx=True)
 

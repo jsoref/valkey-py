@@ -89,7 +89,7 @@ async def test_jsonsetexistentialmodifiersshouldsucceed(decoded_r: valkey.Valkey
     assert await decoded_r.json().set("obj", Path("foo"), "baz", xx=True)
     assert await decoded_r.json().set("obj", Path("qaz"), "baz", nx=True)
 
-    # Test that flags are mutually exlusive
+    # Test that flags are mutually exclusive
     with pytest.raises(Exception):
         await decoded_r.json().set("obj", Path("foo"), "baz", nx=True, xx=True)
 
