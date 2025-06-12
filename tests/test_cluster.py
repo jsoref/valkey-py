@@ -2635,7 +2635,7 @@ class TestNodesManager:
 
     def test_init_slots_cache_cluster_mode_disabled(self):
         """
-        Test that creating a ValkeyCluster failes if one of the startup nodes
+        Test that creating a ValkeyCluster fails if one of the startup nodes
         has cluster mode disabled
         """
         with pytest.raises(ValkeyClusterException) as e:
