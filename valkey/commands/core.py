@@ -1009,7 +1009,7 @@ class ManagementCommands(CommandsProtocol):
 
     def latency_doctor(self):
         """Raise a NotImplementedError, as the client will not support LATENCY DOCTOR.
-        This funcion is best used within the valkey-cli.
+        This function is best used within the valkey-cli.
 
         For more information see https://valkey.io/commands/latency-doctor
         """
@@ -1023,7 +1023,7 @@ class ManagementCommands(CommandsProtocol):
 
     def latency_graph(self):
         """Raise a NotImplementedError, as the client will not support LATENCY GRAPH.
-        This funcion is best used within the valkey-cli.
+        This function is best used within the valkey-cli.
 
         For more information see https://valkey.io/commands/latency-graph.
         """
