@@ -3563,7 +3563,7 @@ class TestValkeyCommands:
         await asyncio.sleep(0.01)
         # the task is now sleeping, lets send it an exception
         task.cancel()
-        # If all is well, the task should finish right away, otherwise fail with Timeout
+        # If all is well, the task should finish right away; otherwise, fail with Timeout
         async with async_timeout(1.0):
             await task
 

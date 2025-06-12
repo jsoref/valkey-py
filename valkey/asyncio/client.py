@@ -1080,7 +1080,7 @@ class PubSub:
         self, ignore_subscribe_messages: bool = False, timeout: Optional[float] = 0.0
     ):
         """
-        Get the next message if one is available, otherwise None.
+        Get the next message if one is available; otherwise, None.
 
         If timeout is specified, the system will wait for `timeout` seconds
         before returning. Timeout should be specified as a floating point

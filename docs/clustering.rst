@@ -159,7 +159,7 @@ Valkey supports multi-key commands in Cluster Mode, such as Set type
 unions or intersections, mset and mget, as long as the keys all hash to
 the same slot. By using ValkeyCluster client, you can use the known
 functions (e.g. mget, mset) to perform an atomic multi-key operation.
-However, you must ensure all keys are mapped to the same slot, otherwise
+However, you must ensure all keys are mapped to the same slot; otherwise,
 a ValkeyClusterException will be thrown. Valkey Cluster implements a
 concept called hash tags that can be used in order to force certain keys
 to be stored in the same hash slot, see `Keys hash

@@ -114,7 +114,7 @@ class Query:
         Apply specified markup to matched term(s) within the returned field(s).
 
         - **fields** If specified then only those mentioned fields are
-        highlighted, otherwise all fields are highlighted
+        highlighted; otherwise, all fields are highlighted
         - **tags** A list of two strings to surround the match.
         """
         args = ["HIGHLIGHT"]

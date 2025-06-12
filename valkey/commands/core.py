@@ -5047,7 +5047,7 @@ class HashCommands(CommandsProtocol):
     def hsetnx(self, name: str, key: str, value: str) -> Union[Awaitable[bool], bool]:
         """
         Set ``key`` to ``value`` within hash ``name`` if ``key`` does not
-        exist.  Returns 1 if HSETNX created a field, otherwise 0.
+        exist.  Returns 1 if HSETNX created a field; otherwise, 0.
 
         For more information see https://valkey.io/commands/hsetnx
         """

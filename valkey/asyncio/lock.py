@@ -25,7 +25,7 @@ class Lock:
 
     # KEYS[1] - lock name
     # ARGV[1] - token
-    # return 1 if the lock was released, otherwise 0
+    # return 1 if the lock was released; otherwise, 0
     LUA_RELEASE_SCRIPT = """
         local token = redis.call('get', KEYS[1])
         if not token or token ~= ARGV[1] then
@@ -40,7 +40,7 @@ class Lock:
     # ARGV[2] - additional milliseconds
     # ARGV[3] - "0" if the additional time should be added to the lock's
     #           existing ttl or "1" if the existing ttl should be replaced
-    # return 1 if the locks time was extended, otherwise 0
+    # return 1 if the locks time was extended; otherwise, 0
     LUA_EXTEND_SCRIPT = """
         local token = redis.call('get', KEYS[1])
         if not token or token ~= ARGV[1] then
@@ -65,7 +65,7 @@ class Lock:
     # KEYS[1] - lock name
     # ARGV[1] - token
     # ARGV[2] - milliseconds
-    # return 1 if the locks time was reacquired, otherwise 0
+    # return 1 if the locks time was reacquired; otherwise, 0
     LUA_REACQUIRE_SCRIPT = """
         local token = redis.call('get', KEYS[1])
         if not token or token ~= ARGV[1] then
@@ -175,7 +175,7 @@ class Lock:
         Returns True once the lock is acquired.
 
         If ``blocking`` is False, always return immediately. If the lock
-        was acquired, return True, otherwise return False.
+        was acquired, return True; otherwise, return False.
 
         ``blocking_timeout`` specifies the maximum number of seconds to
         wait trying to acquire the lock.
@@ -225,13 +225,13 @@ class Lock:
 
     async def locked(self) -> bool:
         """
-        Returns True if this key is locked by any process, otherwise False.
+        Returns True if this key is locked by any process; otherwise, False.
         """
         return await self.valkey.get(self.name) is not None
 
     async def owned(self) -> bool:
         """
-        Returns True if this key is locked by this lock, otherwise False.
+        Returns True if this key is locked by this lock; otherwise, False.
         """
         stored_token = await self.valkey.get(self.name)
         # need to always compare bytes to bytes
