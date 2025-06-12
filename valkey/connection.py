@@ -773,8 +773,8 @@ class SSLConnection(Connection):
         """Constructor
 
         Args:
-            ssl_keyfile: Path to an ssl private key. Defaults to None.
-            ssl_certfile: Path to an ssl certificate. Defaults to None.
+            ssl_keyfile: Path to a ssl private key. Defaults to None.
+            ssl_certfile: Path to a ssl certificate. Defaults to None.
             ssl_cert_reqs: The string value for the SSLContext.verify_mode (none, optional, required). Defaults to "required".
             ssl_ca_certs: The path to a file of concatenated CA certificates in PEM format. Defaults to None.
             ssl_ca_data: Either an ASCII string of one or more PEM-encoded certificates or a bytes-like object of DER-encoded certificates.
@@ -1187,7 +1187,7 @@ class ConnectionPool:
         Disconnects connections in the pool
 
         If ``inuse_connections`` is True, disconnect connections that are
-        current in use, potentially by other threads. Otherwise only disconnect
+        current in use, potentially by other threads. Otherwise, only disconnect
         connections that are idle in the pool.
         """
         self._checkpid()

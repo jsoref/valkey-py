@@ -358,7 +358,7 @@ class SearchCommands:
                          returned. Implies `replace`
             fields: kwargs dictionary of the document fields to be saved
                     and/or indexed.
-                    NOTE: Geo points shoule be encoded as strings of "lon,lat"
+                    NOTE: Geo points should be encoded as strings of "lon,lat"
         """  # noqa
         return self._add_document(
             doc_id,
@@ -374,7 +374,7 @@ class SearchCommands:
         )
 
     @deprecated_function(
-        version="2.0.0", reason="deprecated since valkeyearch 2.0, call hset instead"
+        version="2.0.0", reason="deprecated since valkey-search 2.0, call hset instead"
     )
     def add_document_hash(self, doc_id, score=1.0, language=None, replace=False):
         """
@@ -441,7 +441,7 @@ class SearchCommands:
 
     def info(self):
         """
-        Get info an stats about the the current index, including the number of
+        Get info and stats about the current index, including the number of
         documents, memory consumption, etc
 
         For more information see `FT.INFO <https://valkey.io/commands/ft.info>`_.
@@ -898,7 +898,7 @@ class SearchCommands:
 class AsyncSearchCommands(SearchCommands):
     async def info(self):
         """
-        Get info an stats about the the current index, including the number of
+        Get info and stats about the current index, including the number of
         documents, memory consumption, etc
 
         For more information see `FT.INFO <https://valkey.io/commands/ft.info>`_.

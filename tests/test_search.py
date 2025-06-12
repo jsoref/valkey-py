@@ -62,7 +62,7 @@ def waitForIndex(env, idx, timeout=None):
 
 def getClient(client):
     """
-    Gets a client client attached to an index name which is ready to be
+    Gets a client attached to an index name which is ready to be
     created
     """
     return client
@@ -459,7 +459,7 @@ def test_example(client):
         "doc1",
         mapping={
             "title": "RediSearch",
-            "body": "RediSearch impements a search engine on top of valkey",
+            "body": "RediSearch implements a search engine on top of valkey",
         },
     )
 
@@ -605,7 +605,7 @@ def test_explain(client):
 
 
 @pytest.mark.valkeymod
-def test_explaincli(client):
+def test_explain_cli(client):
     with pytest.raises(NotImplementedError):
         client.ft().explain_cli("foo")
 
@@ -1026,7 +1026,7 @@ def test_aggregations_groupby(client):
         "search",
         mapping={
             "title": "RediSearch",
-            "body": "RediSearch impements a search engine on top of valkey",
+            "body": "RediSearch implements a search engine on top of valkey",
             "parent": "valkey",
             "random_num": 10,
         },
@@ -1512,7 +1512,7 @@ def test_summarize_disabled_nooffset(client):
 
 
 @pytest.mark.valkeymod
-def test_summarize_disabled_nohl(client):
+def test_summarize_disabled_no_highlight(client):
     client.ft().create_index((TextField("txt"),), no_highlight=True)
     client.hset("doc1", mapping={"txt": "foo bar"})
     with pytest.raises(Exception):
@@ -1628,7 +1628,7 @@ def test_fields_as_name(client):
 
 
 @pytest.mark.valkeymod
-def test_casesensitive(client):
+def test_case_sensitive(client):
     # create index
     SCHEMA = (TagField("t", case_sensitive=False),)
     client.ft().create_index(SCHEMA)
@@ -1646,7 +1646,7 @@ def test_casesensitive(client):
         assert "1" == res["results"][0]["id"]
         assert "2" == res["results"][1]["id"]
 
-    # create casesensitive index
+    # create case-sensitive index
     client.ft().dropindex()
     SCHEMA = (TagField("t", case_sensitive=True),)
     client.ft().create_index(SCHEMA)

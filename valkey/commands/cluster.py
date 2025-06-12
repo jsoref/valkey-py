@@ -225,7 +225,7 @@ class ClusterMultiKeyCommands(ClusterCommandsProtocol):
         The keys are first split up into slots
         and then an DEL command is sent for every slot
 
-        Non-existent keys are ignored.
+        Nonexistent keys are ignored.
         Returns the number of keys that were deleted.
 
         For more information see https://valkey.io/commands/del
@@ -240,7 +240,7 @@ class ClusterMultiKeyCommands(ClusterCommandsProtocol):
         The keys are first split up into slots
         and then an TOUCH command is sent for every slot
 
-        Non-existent keys are ignored.
+        Nonexistent keys are ignored.
         Returns the number of keys that were touched.
 
         For more information see https://valkey.io/commands/touch
@@ -254,7 +254,7 @@ class ClusterMultiKeyCommands(ClusterCommandsProtocol):
         The keys are first split up into slots
         and then an TOUCH command is sent for every slot
 
-        Non-existent keys are ignored.
+        Nonexistent keys are ignored.
         Returns the number of keys that were unlinked.
 
         For more information see https://valkey.io/commands/unlink
@@ -584,7 +584,7 @@ class ClusterManagementCommands(ManagementCommands):
         self, target_node: "TargetNodesT", node_id: str, slot_id: int, state: str
     ) -> ResponseT:
         """
-        Bind an hash slot to a specific node
+        Bind a hash slot to a specific node
 
         :target_node: 'ClusterNode'
             The node to execute the command on

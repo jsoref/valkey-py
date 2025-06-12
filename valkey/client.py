@@ -371,14 +371,14 @@ class Valkey(ValkeyModuleCommands, CoreCommands, SentinelCommands):
         func - The function, being added to this class.
 
         ex: Assume that one has a custom valkey module named foomod that
-        creates command named 'foo.dothing' and 'foo.anotherthing' in valkey.
+        creates command named 'foo.do_thing' and 'foo.another_thing' in valkey.
         To load function functions into this namespace:
 
         from valkey import Valkey
         from foomodule import F
         r = Valkey()
         r.load_external_module("foo", F)
-        r.foo().dothing('your', 'arguments')
+        r.foo().do_thing('your', 'arguments')
 
         For a concrete example see the reimport of the redisjson module in
         tests/test_connection.py::test_loading_external_modules
@@ -1049,7 +1049,7 @@ class PubSub:
         self, ignore_subscribe_messages: bool = False, timeout: float = 0.0
     ):
         """
-        Get the next message if one is available, otherwise None.
+        Get the next message if one is available; otherwise, None.
 
         If timeout is specified, the system will wait for `timeout` seconds
         before returning. Timeout should be specified as a floating point

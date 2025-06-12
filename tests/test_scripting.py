@@ -96,7 +96,7 @@ class TestScripting:
         assert result == 8
 
     @pytest.mark.onlycluster
-    def test_eval_crossslot(self, r):
+    def test_eval_cross_slot(self, r):
         """
         In a clustered valkey, the script keys must be in the same slot.
 

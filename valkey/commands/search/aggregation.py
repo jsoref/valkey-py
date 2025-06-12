@@ -19,7 +19,7 @@ class Reducer:
     """
     Base reducer object for all reducers.
 
-    See the `valkeyearch.reducers` module for the actual reducers.
+    See the `valkey-search.reducers` module for the actual reducers.
     """
 
     NAME = None
