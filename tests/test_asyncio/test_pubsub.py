@@ -910,7 +910,7 @@ class TestPubSubAutoReconnect:
                         # undo the patch
                         await self.cond.wait_for(lambda: self.state >= 2)
                         assert not self.pubsub.connection.is_connected
-                        # it is in a disconnecte state
+                        # it is in a disconnected state
                     # wait for reconnect
                     await self.cond.wait_for(
                         lambda: self.pubsub.connection.is_connected
