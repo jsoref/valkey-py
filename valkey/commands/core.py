@@ -1047,7 +1047,7 @@ class ManagementCommands(CommandsProtocol):
             return self.execute_command("LOLWUT", **kwargs)
 
     def reset(self) -> ResponseT:
-        """Perform a full reset on the connection's server side contenxt.
+        """Perform a full reset on the connection's server side context.
 
         See: https://valkey.io/commands/reset
         """
