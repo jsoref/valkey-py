@@ -1512,7 +1512,7 @@ def test_summarize_disabled_nooffset(client):
 
 
 @pytest.mark.valkeymod
-def test_summarize_disabled_nohl(client):
+def test_summarize_disabled_no_highlight(client):
     client.ft().create_index((TextField("txt"),), no_highlight=True)
     client.hset("doc1", mapping={"txt": "foo bar"})
     with pytest.raises(Exception):
