@@ -827,7 +827,7 @@ class TestPubSubRun:
         # wait until loop gets settled.  Add a subscription
         await asyncio.sleep(0.1)
         await p.subscribe(foo=callback)
-        # wait tof the subscribe to finish.  Cannot use _subscribe() because
+        # wait for the subscribe to finish.  Cannot use _subscribe() because
         # p.run() is already accepting messages
         while True:
             n = await r.publish("foo", "bar")
