@@ -134,7 +134,7 @@ async def test_standalone(delay, master_host):
                     await t
 
                 # make sure that our previous request, cancelled while waiting for
-                # a repsponse, didn't leave the connection open and in a bad state
+                # a response, didn't leave the connection open and in a bad state
                 assert await r.get("bar") == b"bar"
                 assert await r.ping()
                 assert await r.get("foo") == b"foo"

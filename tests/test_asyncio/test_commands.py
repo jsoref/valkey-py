@@ -1972,10 +1972,10 @@ class TestValkeyCommands:
         await r.zadd("b", {"a1": 2, "a2": 2, "a3": 2})
         await r.zadd("c", {"a1": 6, "a3": 5, "a4": 4})
         assert await r.zunionstore("d", ["a", "b", "c"], aggregate="MAX") == 4
-        respponse = await r.zrange("d", 0, -1, withscores=True)
+        response = await r.zrange("d", 0, -1, withscores=True)
         assert_resp_response(
             r,
-            respponse,
+            response,
             [(b"a2", 2.0), (b"a4", 4.0), (b"a3", 5.0), (b"a1", 6.0)],
             [[b"a2", 2.0], [b"a4", 4.0], [b"a3", 5.0], [b"a1", 6.0]],
         )
