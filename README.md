@@ -142,8 +142,8 @@ The following example shows how to utilize [Valkey Pub/Sub](https://valkey.io/to
 
 ### Author
 
-valkey-py can be found [here](
-https://github.com/valkey-io/valkey-py), or downloaded from [pypi](https://pypi.org/project/valkey/).
+[valkey](
+https://github.com/valkey-io/valkey-py) can be downloaded from [pypi](https://pypi.org/project/valkey/).
 It was created as a fork of [redis-py](https://github.com/redis/redis-py)
 
 Special thanks to:
