@@ -635,7 +635,7 @@ class ManagementCommands(CommandsProtocol):
         Enables the tracking feature of the Valkey server, that is used
         for server assisted client side caching.
 
-        ``on`` indicate for tracking on or tracking off. The dafualt is on.
+        ``on`` indicate for tracking on or tracking off. The default is on.
 
         ``clientid`` send invalidation messages to the connection with
         the specified ID.
