@@ -138,12 +138,12 @@ def slowlog(request, r):
     # Save old values
     current_config = r.config_get(target_nodes=r.get_primaries()[0])
     old_slower_than_value = current_config["slowlog-log-slower-than"]
-    old_max_legnth_value = current_config["slowlog-max-len"]
+    old_max_length_value = current_config["slowlog-max-len"]
 
     # Function to restore the old values
     def cleanup():
         r.config_set("slowlog-log-slower-than", old_slower_than_value)
-        r.config_set("slowlog-max-len", old_max_legnth_value)
+        r.config_set("slowlog-max-len", old_max_length_value)
 
     request.addfinalizer(cleanup)
 

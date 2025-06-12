@@ -62,7 +62,7 @@ async def r_teardown(r: valkey.Valkey):
 async def slowlog(r: valkey.Valkey):
     current_config = await r.config_get()
     old_slower_than_value = current_config["slowlog-log-slower-than"]
-    old_max_legnth_value = current_config["slowlog-max-len"]
+    old_max_length_value = current_config["slowlog-max-len"]
 
     await r.config_set("slowlog-log-slower-than", 0)
     await r.config_set("slowlog-max-len", 128)
@@ -70,7 +70,7 @@ async def slowlog(r: valkey.Valkey):
     yield
 
     await r.config_set("slowlog-log-slower-than", old_slower_than_value)
-    await r.config_set("slowlog-max-len", old_max_legnth_value)
+    await r.config_set("slowlog-max-len", old_max_length_value)
 
 
 async def valkey_server_time(client: valkey.Valkey):
