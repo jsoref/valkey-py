@@ -1646,7 +1646,7 @@ def test_case_sensitive(client):
         assert "1" == res["results"][0]["id"]
         assert "2" == res["results"][1]["id"]
 
-    # create casesensitive index
+    # create case-sensitive index
     client.ft().dropindex()
     SCHEMA = (TagField("t", case_sensitive=True),)
     client.ft().create_index(SCHEMA)
