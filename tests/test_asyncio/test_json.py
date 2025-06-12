@@ -58,7 +58,7 @@ async def test_json_merge(decoded_r: valkey.Valkey):
         "person1": {"personal_data": {"name": "John", "hobbies": "reading"}}
     }
 
-    # Test with root path path $.person1.personal_data
+    # Test with root path $.person1.personal_data
     assert await decoded_r.json().merge(
         "person_data", "$.person1.personal_data", {"country": "Israel"}
     )

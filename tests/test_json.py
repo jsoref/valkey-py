@@ -60,7 +60,7 @@ def test_json_merge(client):
         "person1": {"personal_data": {"name": "John", "hobbies": "reading"}}
     }
 
-    # Test with root path path $.person1.personal_data
+    # Test with root path $.person1.personal_data
     assert client.json().merge(
         "person_data", "$.person1.personal_data", {"country": "Israel"}
     )
