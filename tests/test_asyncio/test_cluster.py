@@ -1128,7 +1128,7 @@ class TestClusterValkeyCommands:
         assert await r.cluster_failover(node, "FORCE") is True
         assert await r.cluster_failover(node, "TAKEOVER") is True
         with pytest.raises(ValkeyError):
-            await r.cluster_failover(node, "FORCT")
+            await r.cluster_failover(node, "FORCE_")
 
     async def test_cluster_info(self, r: ValkeyCluster) -> None:
         info = await r.cluster_info()
